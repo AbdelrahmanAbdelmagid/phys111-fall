@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYS 111-105 Schedule & Resources</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 15px;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #1a252f;
+            margin-bottom: 5px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .save-btn {
+            background-color: #2e7d32;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .save-btn:hover {
+            background-color: #1b5e20;
+        }
+        .status-msg {
+            font-size: 13px;
+            color: #2e7d32;
+            font-weight: 600;
+            min-width: 120px;
+        }
+        .table-container {
+            overflow-x: auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            background: #ffffff;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 1100px;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #dcdcdc;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr.header-row {
+            background-color: #eef2f7;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .row-header {
+            font-weight: bold;
+            background-color: #e2e8f0 !important;
+            text-align: left;
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            min-width: 130px;
+        }
+        .other-data {
+            background-color: #fff9c4 !important;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px 0;
+            word-break: break-word;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #004080;
+        }
+        input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>PHYS 111-105 Course Schedule & Local Files</h2>
+
+    <div class="controls">
+        <button id="saveBtn" class="save-btn">Save Data</button>
+        <span id="status" class="status-msg"></span>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <!-- Weeks -->
+            <tr class="header-row">
+                <td class="row-header">Weeks</td>
+                <td>Week 1</td><td>Week 2</td><td>Week 3</td><td>Week 4</td><td>Week 5</td><td>Week 6</td><td>Week 7</td><td>Week 8</td><td>Week 9</td><td>Week 10</td><td>Week 11</td><td>Week 12</td>
+            </tr>
+            <!-- Have Data -->
+            <tr>
+                <td class="row-header">Have Data</td>
+                <td><input type="checkbox" class="data-check" data-week="1" checked></td>
+                <td><input type="checkbox" class="data-check" data-week="2" checked></td>
+                <td><input type="checkbox" class="data-check" data-week="3"></td>
+                <td><input type="checkbox" class="data-check" data-week="4"></td>
+                <td><input type="checkbox" class="data-check" data-week="5"></td>
+                <td><input type="checkbox" class="data-check" data-week="6"></td>
+                <td><input type="checkbox" class="data-check" data-week="7" checked></td>
+                <td><input type="checkbox" class="data-check" data-week="8"></td>
+                <td><input type="checkbox" class="data-check" data-week="9"></td>
+                <td><input type="checkbox" class="data-check" data-week="10"></td>
+                <td><input type="checkbox" class="data-check" data-week="11"></td>
+                <td><input type="checkbox" class="data-check" data-week="12"></td>
+            </tr>
+            <!-- Experiment NO. -->
+            <tr class="header-row">
+                <td class="row-header">Experiment NO.</td>
+                <td>Exp 0 & Exp 1</td><td>Exp 2</td><td>Exp 2</td><td>Exp 2</td><td>Exp 3</td><td>Exp 4</td><td>Exp 5</td><td>Exp 6</td><td>Exp 7</td><td>Exp 8</td><td>Exp 11</td><td>Exp 13</td>
+            </tr>
+            <!-- Experiment Name -->
+            <tr>
+                <td class="row-header">Experiment Name</td>
+                <td>Intro to Stats & Fine Measurements</td>
+                <td>Kinematics Part 1</td>
+                <td>Kinematics Part 2</td>
+                <td>Kinematics Part 3</td>
+                <td>Newton's Law</td>
+                <td>Friction</td>
+                <td>Centripetal</td>
+                <td>Conservation of Linear Momentum</td>
+                <td>Moment of Inertia</td>
+                <td>Maxwell Wheel</td>
+                <td>Ballistic Pendulum</td>
+                <td>Conservation of Mechanical Energy</td>
+            </tr>
+            <!-- Experiment PDF -->
+            <tr>
+                <td class="row-header">Experiment PDF</td>
+                <td>
+                    <a href="Exp 0 Error Analysis and construction of graphs v2.3.pdf">Exp 0 Error Analysis</a><br>
+                    <a href="Exp 0 Lab zero_Excel sheet new.pdf">Exp 0 Lab zero Excel</a><br>
+                    <a href="Exp 1 - Fine mesuerments (V2.8).pdf">Exp 1 Fine Measurements</a>
+                </td>
+                <td><a href="Exp 2 Lab manual.pdf">Exp 2 Lab Manual</a></td>
+                <td><a href="Exp 2 part 2 - Projectile Motion.pdf">Exp 2 Projectile Motion</a></td>
+                <td><a href="redo kinematics of linear motion.mp4">Kinematics Video (.mp4)</a></td>
+                <td><a href="Exp 3.pdf">Exp 3 Manual</a></td>
+                <td><a href="Exp 4_Friction final.pdf">Exp 4 Friction</a></td>
+                <td><a href="Exp 5 Centripetal Force Lab Manual.pdf">Exp 5 Centripetal</a></td>
+                <td><a href="Exp 6.pdf">Exp 6 Manual</a></td>
+                <td><a href="Exp 7 Moment of Inertia lab manual.pdf">Exp 7 Moment of Inertia</a></td>
+                <td><a href="Exp 8 Maxwell Wheel lab manual.pdf">Exp 8 Maxwell Wheel</a></td>
+                <td><a href="Classical Mechanics Exp 11 Report v1.7.xlsx">Exp 11 Report (.xlsx)</a></td>
+                <td><a href="Exp 13 Conservation_of_Mechanical_Energy_in_a_Vertical_Spring_Manual.pdf">Exp 13 Manual</a></td>
+            </tr>
+            <!-- Experiment Excel -->
+            <tr>
+                <td class="row-header">Experiment Excel</td>
+                <td><a href="Classical Mechanics Exp 1 .xlsx">Exp 1 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 2 .xlsm">Exp 2 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 2 part 2.xlsx">Exp 2 Part 2 Sheet</a></td>
+                <td>-</td>
+                <td><a href="Classical Mechanics Exp 3 .xlsm">Exp 3 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 4 Friction force.xlsm">Exp 4 Friction Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 5 Report v2.1.xlsm">Exp 5 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 6 Report v2.2.xlsm">Exp 6 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 7 Report v2.1.xlsm">Exp 7 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 8 Report v2.1.xlsm">Exp 8 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 11 Report v1.7.xlsm">Exp 11 Sheet</a></td>
+                <td><a href="Classical Mechanics Exp 13 Report v2.1.xlsm">Exp 13 Sheet</a></td>
+            </tr>
+            <!-- Other Data -->
+            <tr class="other-data">
+                <td class="row-header other-data">Other Data</td>
+                <td><a href="Exp 1 - Fine mesuerments (V2.8).docx">Exp 1 Doc</a></td>
+                <td><a href="Videos.docx">Videos Doc</a></td>
+                <td><a href="Introduction to Statistics.mp4">Intro Stats (.mp4)</a></td>
+                <td><a href="Presentation1 Fine measurments V8.2.pptx">Presentation 1</a></td>
+                <td><a href="Presentation2 Kinematics of Linear Motion V6.1.ppt">Presentation 2</a></td>
+                <td><a href="Presentation3 Newton_s Laws of Linear Motion V4.5.pptx">Presentation 3</a></td>
+                <td><a href="Presentation5 Centrepital Force V2.4.pptx">Presentation 5</a></td>
+                <td><a href="Conservation_of_Mechanical_Energy_in_a_Vertical_Spring_Manual.docx">Spring Manual Doc</a></td>
+                <td><a href="Conservation of energy in a vertical spring.pptx">Energy Presentation</a></td>
+                <td>-</td><td>-</td><td>-</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        (function() {
+            const saveBtn = document.getElementById('saveBtn');
+            const statusEl = document.getElementById('status');
+            const checkboxes = document.querySelectorAll('.data-check');
+
+            function showStatus(text) {
+                if (statusEl) {
+                    statusEl.textContent = text;
+                    setTimeout(() => { statusEl.textContent = ''; }, 2500);
+                }
+            }
+
+            // Restore saved states on page load
+            function restoreStates() {
+                checkboxes.forEach((cb) => {
+                    const week = cb.getAttribute('data-week');
+                    const key = 'phys111_week_' + week;
+                    try {
+                        const savedState = localStorage.getItem(key);
+                        if (savedState !== null) {
+                            cb.checked = (savedState === 'true');
+                        }
+                    } catch (e) {
+                        console.error('Storage access error:', e);
+                    }
+                });
+            }
+
+            // Save all current checkbox states on button click
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function() {
+                    try {
+                        checkboxes.forEach((cb) => {
+                            const week = cb.getAttribute('data-week');
+                            const key = 'phys111_week_' + week;
+                            localStorage.setItem(key, cb.checked);
+                        });
+                        showStatus('Saved successfully!');
+                    } catch (e) {
+                        console.error('Storage write error:', e);
+                        showStatus('Error saving data!');
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', restoreStates);
+            } else {
+                restoreStates();
+            }
+        })();
+    </script>
+
+</body>
+</html>
