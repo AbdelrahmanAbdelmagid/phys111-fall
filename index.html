@@ -42,7 +42,7 @@
             font-size: 13px;
             color: #2e7d32;
             font-weight: 600;
-            min-width: 120px;
+            min-width: 140px;
         }
         .table-container {
             overflow-x: auto;
@@ -100,7 +100,7 @@
 </head>
 <body>
 
-    <h2>PHYS 111-105 Course Schedule & Local Files</h2>
+    <h2>PHYS 111-105 Schedule & Local Files</h2>
 
     <div class="controls">
         <button id="saveBtn" class="save-btn">Save Data</button>
@@ -117,48 +117,48 @@
             <!-- Have Data -->
             <tr>
                 <td class="row-header">Have Data</td>
-                <td><input type="checkbox" class="data-check" data-week="1" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="2" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="3"></td>
-                <td><input type="checkbox" class="data-check" data-week="4"></td>
-                <td><input type="checkbox" class="data-check" data-week="5"></td>
-                <td><input type="checkbox" class="data-check" data-week="6"></td>
-                <td><input type="checkbox" class="data-check" data-week="7" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="8"></td>
-                <td><input type="checkbox" class="data-check" data-week="9"></td>
-                <td><input type="checkbox" class="data-check" data-week="10"></td>
-                <td><input type="checkbox" class="data-check" data-week="11"></td>
-                <td><input type="checkbox" class="data-check" data-week="12"></td>
+                <td><input type="checkbox" class="data-check" id="hd_1"></td>
+                <td><input type="checkbox" class="data-check" id="hd_2"></td>
+                <td><input type="checkbox" class="data-check" id="hd_3"></td>
+                <td><input type="checkbox" class="data-check" id="hd_4"></td>
+                <td><input type="checkbox" class="data-check" id="hd_5"></td>
+                <td><input type="checkbox" class="data-check" id="hd_6"></td>
+                <td><input type="checkbox" class="data-check" id="hd_7"></td>
+                <td><input type="checkbox" class="data-check" id="hd_8"></td>
+                <td><input type="checkbox" class="data-check" id="hd_9"></td>
+                <td><input type="checkbox" class="data-check" id="hd_10"></td>
+                <td><input type="checkbox" class="data-check" id="hd_11"></td>
+                <td><input type="checkbox" class="data-check" id="hd_12"></td>
             </tr>
              <!-- Have Plotted data -->
             <tr>
                 <td class="row-header">Plotted</td>
-                <td><input type="checkbox" class="data-check" data-week="1" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="2" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="3"></td>
-                <td><input type="checkbox" class="data-check" data-week="4"></td>
-                <td><input type="checkbox" class="data-check" data-week="5"></td>
-                <td><input type="checkbox" class="data-check" data-week="6"></td>
-                <td><input type="checkbox" class="data-check" data-week="7" checked></td>
-                <td><input type="checkbox" class="data-check" data-week="8"></td>
-                <td><input type="checkbox" class="data-check" data-week="9"></td>
-                <td><input type="checkbox" class="data-check" data-week="10"></td>
-                <td><input type="checkbox" class="data-check" data-week="11"></td>
-                <td><input type="checkbox" class="data-check" data-week="12"></td>
+                <td><input type="checkbox" class="data-check" id="plt_1"></td>
+                <td><input type="checkbox" class="data-check" id="plt_2"></td>
+                <td><input type="checkbox" class="data-check" id="plt_3"></td>
+                <td><input type="checkbox" class="data-check" id="plt_4"></td>
+                <td><input type="checkbox" class="data-check" id="plt_5"></td>
+                <td><input type="checkbox" class="data-check" id="plt_6"></td>
+                <td><input type="checkbox" class="data-check" id="plt_7"></td>
+                <td><input type="checkbox" class="data-check" id="plt_8"></td>
+                <td><input type="checkbox" class="data-check" id="plt_9"></td>
+                <td><input type="checkbox" class="data-check" id="plt_10"></td>
+                <td><input type="checkbox" class="data-check" id="plt_11"></td>
+                <td><input type="checkbox" class="data-check" id="plt_12"></td>
             </tr>
              <!-- noted about the Experiments -->
             <tr>
                 <td class="row-header">Notes about the Experiments</td>
                 <td>theoretical week</td>
-                <td><span style="color: green;"> ✅Done </td>
+                <td><span style="color: green;"> ✅Done </span></td>
                 <td><span style="color: red;">no data need slow motion camera</span></td>
                 <td><span style="color: red;">not going to collect data</span></td>
                 <td>collected some data</td>
                 <td><span style="color: red;">not present in the lab</span></td>
-                <td><span style="color: green;">✅done</td>
+                <td><span style="color: green;">✅done</span></td>
                 <td>present in lab</td>
                 <td>present in lab</td>
-                <td><span style="color: green;">✅done</td>
+                <td><span style="color: green;">✅done</span></td>
                 <td><span style="color: red;">the students doesn't take it</span></td>
                 <td><span style="color: red;">the students doesn't take it</span></td>
             </tr>
@@ -180,7 +180,7 @@
                 <td>Conservation of Linear Momentum</td>
                 <td>Moment of Inertia</td>
                 <td>Maxwell Wheel</td>
-                <td>Ballistic      <span style="color: white;">.</span>Pendulum   </td>
+                <td>Ballistic <span style="color: white;">.</span>Pendulum</td>
                 <td>Conservation of Mechanical Energy</td>
             </tr>
             <!-- Experiment PDF -->
@@ -241,6 +241,7 @@
             const saveBtn = document.getElementById('saveBtn');
             const statusEl = document.getElementById('status');
             const checkboxes = document.querySelectorAll('.data-check');
+            const STORAGE_KEY = 'phys111_checkbox_states';
 
             function showStatus(text) {
                 if (statusEl) {
@@ -249,37 +250,40 @@
                 }
             }
 
-            // Restore saved states on page load
+            // Restore saved checkbox states on load
             function restoreStates() {
-                checkboxes.forEach((cb) => {
-                    const week = cb.getAttribute('data-week');
-                    const key = 'phys111_week_' + week;
-                    try {
-                        const savedState = localStorage.getItem(key);
-                        if (savedState !== null) {
-                            cb.checked = (savedState === 'true');
-                        }
-                    } catch (e) {
-                        console.error('Storage access error:', e);
+                try {
+                    const savedData = localStorage.getItem(STORAGE_KEY);
+                    if (savedData) {
+                        const parsedStates = JSON.parse(savedData);
+                        checkboxes.forEach((cb) => {
+                            if (parsedStates.hasOwnProperty(cb.id)) {
+                                cb.checked = parsedStates[cb.id];
+                            }
+                        });
                     }
-                });
+                } catch (e) {
+                    console.error('Failed to read from localStorage:', e);
+                }
             }
 
-            // Save all current checkbox states on button click
+            // Save all checkbox states to localStorage
+            function saveStates() {
+                try {
+                    const statesToSave = {};
+                    checkboxes.forEach((cb) => {
+                        statesToSave[cb.id] = cb.checked;
+                    });
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(statesToSave));
+                    showStatus('Saved locally!');
+                } catch (e) {
+                    console.error('Failed to write to localStorage:', e);
+                    showStatus('Error saving data!');
+                }
+            }
+
             if (saveBtn) {
-                saveBtn.addEventListener('click', function() {
-                    try {
-                        checkboxes.forEach((cb) => {
-                            const week = cb.getAttribute('data-week');
-                            const key = 'phys111_week_' + week;
-                            localStorage.setItem(key, cb.checked);
-                        });
-                        showStatus('Saved successfully!');
-                    } catch (e) {
-                        console.error('Storage write error:', e);
-                        showStatus('Error saving data!');
-                    }
-                });
+                saveBtn.addEventListener('click', saveStates);
             }
 
             if (document.readyState === 'loading') {
